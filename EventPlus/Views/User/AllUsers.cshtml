@@ -1,0 +1,88 @@
+﻿
+@model IEnumerable<EventPlus.Models.UserViewModel>
+@{
+    ViewBag.Title = "All Users";
+}
+
+    <main id="main" class="main-page">
+
+        <section class="page-section background-grey" id="login">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center bg-white px-lg-5">
+                        <div class="row">
+                            <div class="container">
+                                <div class="pull-left">
+                                    <h2 class="text-black-50 mt-5">
+                                        Users
+                                    </h2>
+                                </div>
+                                <nav id="nav-menu-container" class="mt-4">
+                                    <a class="about-btn" href="CreateUser">Create New User</a>
+
+                                </nav>
+                            </div>
+                        </div>
+
+                        <hr class="divider" />
+
+                        <br>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        @foreach (var item in Model)
+                                        {
+                                            <div class="col-md-6 mb-4">
+                                                <div class="card listing-preview">
+                                                    <img class="card-img-top" src="~/Images/speakers/@(item.Gender == item.SetUserGenderValue("Male")? 1 : 2).jpg" alt="item.Name">
+
+                                                    <div class="card-body">
+                                                        <div class="listing-heading text-center">
+                                                            @Html.ActionLink(item.Email, "UserDetail", new { userID = item.ID })
+                                                        </div>
+                                                        <hr>
+                                                        <div class="row py-2 text-secondary">
+                                                            <div class="col-6">
+                                                                First Name
+                                                            </div>
+                                                            <div class="col-6">
+                                                                @item.First_Name
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="row py-2 text-secondary">
+                                                            <div class="col-6">
+                                                                Last Name
+                                                            </div>
+                                                            <div class="col-6">
+                                                                @item.Last_Name
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+
+                                                        <div class="row text-secondary pb-2">
+                                                            <div class="col-6">
+                                                                Gender
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <td>@item.Gender</td>
+                                                            </div>
+                                                        </div>
+                                                        @Html.ActionLink("More Info", "UserDetail", new { userID = item.ID }, new { @class = "about-btn btn-block" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>

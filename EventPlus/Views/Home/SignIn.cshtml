@@ -1,0 +1,39 @@
+﻿@model EventPlus.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Sign In";
+}
+
+    <main id="main" class="main-page">
+        <section class="page-section mb-5" id="login">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center bg-white px-lg-5">
+                        <br />
+                        <br />
+                        <br />
+
+                        <h2 class="text-black-50 mt-5">Sign In</h2>
+                        <hr class="divider my-4" />
+                        @using (Html.BeginForm("SignIn", "Home", FormMethod.Post))
+                        {
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-group email-input", @placeholder = "Email" });
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control form-group password-input", @placeholder = "Password", @type = "password" });
+                            <button type="submit">Sign In</button>
+                        }
+                        <p class="text-black-50">Don't have an account? <a href="SignUp" class="text-dark">Sign Up.</a></p>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+   

@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- ======= Intro Section ======= -->
+<section id="intro">
+    <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
+        <h1 class="mb-4 pb-0">The Best <span>Event <br />Management</span> Platform</h1>
+        <p style="width:55%" class="mb-4 pb-0">EventPlus can help you manage your events in a very efficient, effective and stress-free way!</p>
+        @*<a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>*@
+
+        @if (Session["UserType"] != null)
+        {
+                @Html.ActionLink("Buy Tickets", "AllEvents", "Event", new { area = "" }, new { @class = "about-btn" })
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.ActionLink("Login", "SignIn", "Home", new { area = "" }, new { @class = "about-btn" })
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink("Register", "SignUp", "Home", new { area = "" }, new { @class = "about-btn" })
+                </div>
+            </div>
+        }
+
+
+        @*<a href="#about" class="about-btn scrollto">About The Event</a>*@
+    </div>
+</section><!-- End Intro Section -->
+<!-- ======= About Section ======= -->
+<section id="about">
+    <div class="container" data-aos="fade-up">
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <h2>About EventsPlus</h2>
+                <p>
+                    EventsPlus is an event management solution for organizations and individuals. Its allows organizations to manage their events of any size and type
+and also allows individuals get tickets for events.</p>
+            </div>
+        </div>
+    </div>
+</section><!-- End About Section -->
+<!-- ======= Gallery Section ======= -->
+<section id="gallery">
+
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Gallery</h2>
+            <p>Check our gallery from the recent events</p>
+        </div>
+    </div>
+
+    <div class="owl-carousel gallery-carousel" data-aos="fade-up" data-aos-delay="100">
+        <a href="~/Images/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/1.jpg" alt=""></a>
+        <a href="~/Images/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/2.jpg" alt=""></a>
+        <a href="~/Images/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/3.jpg" alt=""></a>
+        <a href="~/Images/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/4.jpg" alt=""></a>
+        <a href="~/Images/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/5.jpg" alt=""></a>
+        <a href="~/Images/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/6.jpg" alt=""></a>
+        <a href="~/Images/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/7.jpg" alt=""></a>
+        <a href="~/Images/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/Images/gallery/8.jpg" alt=""></a>
+    </div>
+
+</section><!-- End Gallery Section -->
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="section-with-bg">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us.</p>
+        </div>
+
+        <div class="row contact-info">
+
+            <div class="col-md-4">
+                <div class="contact-address">
+                    <i class="ion-ios-location-outline"></i>
+                    <h3>Address</h3>
+                    <address>A108 Rest Street, NY 000000, USA</address>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-phone">
+                    <i class="ion-ios-telephone-outline"></i>
+                    <h3>Phone Number</h3>
+                    <p><a href="tel:+100000000000">+1 0000 00000 00</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-email">
+                    <i class="ion-ios-email-outline"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@example.com">info@eventsplus.com</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form">
+            <form action="~/Content/forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                        <div class="validate"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <div class="validate"></div>
+                </div>
+                <div class="mb-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
